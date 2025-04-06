@@ -26,6 +26,7 @@ public:
     void dis();
     void pop_front();
     void pop_back();
+    void pop(int pos);
     void insert(int val, int pos);
 };
 
@@ -73,7 +74,7 @@ void List::insert(int val, int pos)
     else
     {
         Node* temp=head;
-        for(int i=0;i<pos-1;i++)
+        for(int i=0;i<pos-2;i++)
         {
             if(temp==NULL)
             {
@@ -92,7 +93,7 @@ void List::pop_front()
 {
     if(head==NULL)
     {
-        cout<<"Link List is empty."<<endl;
+        cout<<"Linked List is empty."<<endl;
         return;
     }
     Node* temp=head;
@@ -105,7 +106,7 @@ void List::pop_back()
 {
     if(head==NULL)
     {
-        cout<<"Link List is empty."<<endl;
+        cout<<"Linked List is empty."<<endl;
         return;
     }
     Node* temp=head;
@@ -116,6 +117,28 @@ void List::pop_back()
     temp->next=NULL;
     delete tail;
     tail=temp;
+}
+
+void List::pop(int pos)
+{
+    if(head==NULL)
+    {
+        cout<<"Linked List is empty."<<endl;
+        return;
+    }
+    if(pos==1)
+    {
+        pop_front();
+        return;
+    }
+    Node* temp=head;
+    for(int i=0;i<pos-2;i++)
+    {
+        temp=temp->next;
+    }
+    Node* dlt=temp->next;
+    temp->next=dlt->next;
+    delete dlt;
 }
 
 void List::dis()
@@ -133,7 +156,7 @@ void List::dis()
 int main()
 {
     List obj;
-    cout<<"Welcome to Link List\n"<<endl;
+    cout<<"Welcome to Linked List\n"<<endl;
     while(1)
     {
         int n;
@@ -181,6 +204,7 @@ int main()
             cout<<"Where are you want to pop your data:"<<endl;
             cout<<"1. pop front."<<endl;
             cout<<"2. pop back."<<endl;
+            cout<<"3. pop by position."<<endl;
             cout<<"Enter your choice number: ";
             cin>>n;
             if (n==1)
@@ -190,6 +214,13 @@ int main()
             else if(n==2)
             {
                 obj.pop_back();
+            }
+            else if(n==3)
+            {
+                int pos;
+                cout<<"Enter the position: ";
+                cin>>pos;
+                obj.pop(pos);
             }
             else
             {
