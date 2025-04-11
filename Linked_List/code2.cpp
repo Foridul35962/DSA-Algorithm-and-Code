@@ -22,8 +22,8 @@ private:
     Node* tail=NULL;
 
 public:
-    void push_back(int pos);
-    void push_front(int pos);
+    void push_back(int val);
+    void push_front(int val);
     void insert(int val, int pos);
     void pop_back();
     void pop_front();
@@ -31,9 +31,9 @@ public:
     void display();
 };
 
-void List::push_front(int pos)
+void List::push_front(int val)
 {
-    Node* newNode= new Node(pos);
+    Node* newNode= new Node(val);
     if(head==NULL)
     {
         head=tail=newNode;
@@ -47,9 +47,9 @@ void List::push_front(int pos)
     }
 }
 
-void List::push_back(int pos)
+void List::push_back(int val)
 {
-    Node* newNode= new Node(pos);
+    Node* newNode= new Node(val);
     if(head==NULL)
     {
         head=tail=newNode;
