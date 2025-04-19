@@ -30,7 +30,7 @@ public:
 void List::push(int val)
 {
     Node* newNode= new Node(val);
-    if(head==NULL)
+    if (head==NULL)
     {
         head=tail=newNode;
     }
