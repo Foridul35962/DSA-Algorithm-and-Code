@@ -34,13 +34,13 @@ void MaxMin(int i,int j,int a[],int &max,int &min)
 int main()
 {
     int n;
-    cout<<"Ente the size of array: ";
+    cout<<"Enter the size of array: ";
     cin>>n;
     int a[n],max,min;
     cout<<"Enter all value of the array: ";
-    for(int i=1;i<=n;i++)
+    for(int i=0;i<n;i++)
         cin>>a[i];
-    MaxMin(1,n,a,max,min);
+    MaxMin(0,n-1,a,max,min);
     cout<<"Maximum number is: "<<max<<endl;
     cout<<"Minimum number is: "<<min<<endl;
     return 0;
