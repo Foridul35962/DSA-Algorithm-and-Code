@@ -29,22 +29,23 @@ void bubbleSort(vector<long int> &arr)
 }
 
 // Partition function for Quick Sort
-long int partition(vector<long int> &arr, long int low, long int high)
+long int partition(vector<long int> &a, long int m, long int p)
 {
-    long int pivot = arr[high];
-    long int i = low - 1;
-
-    for (long int j = low; j < high; j++)
+    int v,i,j;
+    v=a[m];
+    i=m;
+    j=p;
+    while(i<j)
     {
-        if (arr[j] < pivot)
-        {
-            i++;
-            swap(arr[i], arr[j]);
-        }
+        while(i<p && a[i]<=v)
+            i=i+1;
+        while(j>m && a[j]>=v)
+            j=j-1;
+        if(i<j)
+            swap(a[i],a[j]);
     }
-
-    swap(arr[i + 1], arr[high]);
-    return i + 1;
+    swap(a[m], a[j]);
+    return j;
 }
 
 // Quick sort
